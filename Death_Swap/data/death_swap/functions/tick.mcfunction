@@ -4,11 +4,11 @@
 # Datapack By RageGamingPE
 ####
 
-execute if score @p player matches 1 run scoreboard players remove @r timer 1
+execute as @p[scores={player=1}] run scoreboard players remove @r timer 1
 
-execute if score @p timer matches 0 at @p[scores={player=1}] run summon minecraft:armor_stand ~ ~ ~ {NoGravity:1,Invisible:1,CustomName:{"text":"DeathSwap"}}
-execute if score @p timer matches 0 run effect give @p minecraft:resistance 5 2 true
-execute if score @p timer matches 0 run tp @p[scores={player=1}] @p[scores={player=2}]
-execute if score @p timer matches 0 run tp @p[scores={player=2}] @e[type=armor_stand,name=DeathSwap,limit=1]
-execute if score @p timer matches 0 run kill @e[type=armor_stand,name=DeathSwap]
-execute if score @p timer matches 0 run scoreboard players set @a timer 600
+execute as @p[scores={timer=0}] at @p[scores={player=1}] run summon minecraft:armor_stand ~ ~ ~ {NoGravity:1,Invisible:1,CustomName:"\"DeathSwap\""}
+execute as @p[scores={timer=0}] run effect give @a minecraft:resistance 5 2 true
+execute as @p[scores={timer=0}] run tp @p[scores={player=1}] @p[scores={player=2}]
+execute as @p[scores={timer=0}] run tp @p[scores={player=2}] @e[type=armor_stand,name=DeathSwap,limit=1]
+execute as @p[scores={timer=0}] run kill @e[type=armor_stand,name=DeathSwap]
+execute as @p[scores={timer=0}] run scoreboard players set @a timer 400
