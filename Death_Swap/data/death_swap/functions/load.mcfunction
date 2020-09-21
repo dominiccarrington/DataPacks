@@ -7,14 +7,19 @@
 gamerule commandBlockOutput false
 
 scoreboard objectives add player dummy
+scoreboard objectives add _player dummy
 scoreboard objectives add timer dummy
 scoreboard objectives add health health
+scoreboard objectives add deaths deathCount
 scoreboard objectives setdisplay list health
 
 scoreboard players set @a player 0
-scoreboard players set @a timer 400
-kill @e[type=armor_stand,name=DeathSwap]
+execute as @a run scoreboard players add #players player 1
+scoreboard players set #default timer 1200
+scoreboard players operation #default timer /= #players player
+scoreboard players operation @a timer = #default timer
 
+kill @e[type=armor_stand,name=DeathSwap]
 
 tellraw @a [{"text":"> ","color":"dark_green","italic":true},{"text":"Datapack [","color":"white","italic":true},{"text":"Death Swap","color":"white","italic":true},{"text":"]","color":"white","italic":true},{"text":" Installed!","color":"white"}]
 

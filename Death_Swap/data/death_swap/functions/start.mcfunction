@@ -4,8 +4,8 @@
 # Datapack By RageGamingPE
 ####
 
-scoreboard players set @r[scores={player=0}] player 1
-scoreboard players set @r[scores={player=0}] player 2
+scoreboard players set #temp player 1
+function death_swap:set_players
 
 clear @a
 xp set @a 0
