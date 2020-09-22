@@ -2,14 +2,18 @@
   "name": "datapacks",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "build.js",
   "dependencies": {},
   "devDependencies": {
     "gh-pages": "^3.1.0",
+    "glob": "^7.1.6",
+    "yaml": "^1.10.0",
     "zip-a-folder": "0.0.12"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "publish": "npm run publish.js",
+    "build": "npm run build.js"
   },
   "repository": {
     "type": "git",
