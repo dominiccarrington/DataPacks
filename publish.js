@@ -7,7 +7,8 @@ const { zip } = zipAFolder;
 const PACKS = [
     'Death_Swap',
     'SpeedRunner_VS_Hunter',
-    'Survival_Games'
+    'Survival_Games',
+    'Objective_Displayed'
 ];
 
 async function main() {
