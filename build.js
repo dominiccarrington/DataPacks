@@ -81,15 +81,11 @@ function convertForBook(file) {
 }
 
 function convertForTellraw(file, start) {
-    const content = fs.readFileSync(file).toString();
-    const lines = content.split("\n");
-
-    let output = [];
-    for (let line of lines) {
-        output.push(convertLine(line, [], "white"));
-    }
-
-    return output.map((el) => start + JSON.stringify(el)).join("\n");
+    return fs.readFileSync(file).toString()
+        .split("\n")
+        .map((line) => convertLine(line, [], "white"))
+        .map((el) => start + JSON.stringify(el))
+        .join("\n");
 }
 
 function convertLine(line, page, defaultColor) {
@@ -145,6 +141,7 @@ function convertLine(line, page, defaultColor) {
                 let click = "";
                 if (line[j] == "(") {
                     [click, j] = absorbTextUntil(line, j+1, ")");
+                    if (click === "") click = text;
                     j++;
                 }
                 
