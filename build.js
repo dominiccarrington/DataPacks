@@ -100,7 +100,7 @@ export function convertLine(
             text += line[++j];
         } else if (lookoutFor.includes(char)) {
             if (text) {
-                page.push({text, ...outputStatus(status)});
+                page.push({text, ...status});
                 text = "";
             }
 
@@ -126,24 +126,23 @@ export function convertLine(
                 }
             } else if (char == "[") {
                 [text, j] = absorbTextUntil(line, j+1, "]");
-                j++;
 
                 // '(' means click action
                 let click = "";
-                if (line[j] == "(") {
+                if (line[j+1] == "(") {
+                    j++;
                     [click, j] = absorbTextUntil(line, j+1, ")");
                     if (click === "") click = text;
-                    j++;
                 }
                 
                 // '{' means hover
                 let hover = "";
-                if (line[j] == "{") {
-                    [hover, j] = absorbTextUntil(line, j+1, "}");
+                if (line[j+1] == "{") {
                     j++;
+                    [hover, j] = absorbTextUntil(line, j+1, "}");
                 }
 
-                let out = {text, ...outputStatus(status)};
+                let out = {text, ...status};
 
                 if (click) {
                     let action = "";
@@ -168,18 +167,10 @@ export function convertLine(
 
                 if (player.includes(".")) {
                     [player, objective] = player.split(".");
-                    page.push({"score": {"name": player, "objective": objective}, ...outputStatus(status)});
+                    page.push({"score": {"name": player, "objective": objective}, ...status});
                 } else {
-                    page.push({"selector": player, ...outputStatus(status)});
+                    page.push({"selector": player, ...status});
                 }
-            } else if (char == "(") { // TODO
-                [query, j] = absorbTextUntil(line, j+1, "?");
-                [ifSection, j] = absorbTextUntil(line, j+1, ":");
-                [unlessSection, j] = absorbTextUntil(line, j+1, ")");
-
-                console.log(query);
-                console.log(ifSection);
-                console.log(unlessSection);
             }
         } else {
             text += char;
@@ -189,14 +180,6 @@ export function convertLine(
     if (text) page.push({text, 'color': defaultColor});
 
     return page;
-}
-
-function outputStatus(status) {
-    let output = {};
-
-    for (let key in status) if (status[key]) output[key] = status[key];
-
-    return output;
 }
 
 function absorbTextUntil(line, start, until) {
