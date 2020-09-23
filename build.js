@@ -123,13 +123,10 @@ function convertLine(line, page, defaultColor) {
                 status.obfuscated = !status.obfuscated;
             } else if (char == "%") {
                 if (line[j+1] == "(" && status.color == defaultColor) {
-                    let skip = 2;
-                    status.color = line[j+skip] === line[j+skip].toUpperCase() ? "#" : "";
-                    while (line[j+skip] !== ")") {
-                        status.color += line[j+skip];
-                        skip++;
-                    }
-                    j += skip;
+                    let start = line[j+2] === line[j+2].toUpperCase() ? "#" : "";
+                    [status.color, j] = absorbTextUntil(line, j+2, ")");
+
+                    status.color = start + status.color;
                 } else {
                     status.color = defaultColor;
                 }
@@ -173,24 +170,14 @@ function convertLine(line, page, defaultColor) {
                 page.push(out);
                 text = "";
             } else if (char == "$" && line[j+1] == "{") {
-                let skip = 2;
-                let player = "";
-                let objective = "";
-                while (line[j+skip] !== "}") {
-                    player += line[j+skip];
-                    skip++;
-                }
+                [player, j] = absorbTextUntil(line, j+2, "}");
 
                 if (player.includes(".")) {
                     [player, objective] = player.split(".");
-                }
-                
-                if (objective) {
                     page.push({"score": {"name": player, "objective": objective}, ...status});
                 } else {
-                    page.push({"selector":"@p", ...status});
+                    page.push({"selector": player, ...status});
                 }
-                j += skip;
             }
         } else {
             text += char;
