@@ -88,16 +88,10 @@ function convertForTellraw(file, start) {
         .join("\n");
 }
 
-function convertLine(line, page, defaultColor) {
-    let status = {
-        bold: false,
-        italic: false,
-        underline: false,
-        strikethrough: false,
-        obfuscated: false,
-        color: defaultColor
-    };
-
+function convertLine(
+    line, page, defaultColor,
+    status = {bold: false, italic: false, underline: false, strikethrough: false, obfuscated: false, color: defaultColor}
+) {
     let text = "";
     const lookoutFor = ['*', '_', '-', '#', '%', '[', '$'];
     for (let j = 0; j < line.length; j++) {
@@ -106,7 +100,7 @@ function convertLine(line, page, defaultColor) {
             text += line[++j];
         } else if (lookoutFor.includes(char)) {
             if (text) {
-                page.push({text, ...status});
+                page.push({text, ...outputStatus(status)});
                 text = "";
             }
 
@@ -149,7 +143,7 @@ function convertLine(line, page, defaultColor) {
                     j++;
                 }
 
-                let out = {text, ...status};
+                let out = {text, ...outputStatus(status)};
 
                 if (click) {
                     let action = "";
@@ -174,9 +168,9 @@ function convertLine(line, page, defaultColor) {
 
                 if (player.includes(".")) {
                     [player, objective] = player.split(".");
-                    page.push({"score": {"name": player, "objective": objective}, ...status});
+                    page.push({"score": {"name": player, "objective": objective}, ...outputStatus(status)});
                 } else {
-                    page.push({"selector": player, ...status});
+                    page.push({"selector": player, ...outputStatus(status)});
                 }
             }
         } else {
@@ -187,6 +181,14 @@ function convertLine(line, page, defaultColor) {
     if (text) page.push({text, 'color': defaultColor});
 
     return page;
+}
+
+function outputStatus(status) {
+    let output = {};
+
+    for (let key in status) if (status[key]) output[key] = status[key];
+
+    return output;
 }
 
 function absorbTextUntil(line, start, until) {
