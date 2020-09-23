@@ -1,5 +1,8 @@
-const ghPages = require('gh-pages');
-const { zip } = require('zip-a-folder');
+import ghPages from 'gh-pages';
+const { publish } = ghPages;
+
+import zipAFolder from 'zip-a-folder';
+const { zip } = zipAFolder;
 
 const PACKS = [
     'Death_Swap',
@@ -12,7 +15,7 @@ async function main() {
         await zip(pack, '_site/files/' + pack + '.zip');
     }
 
-    ghPages.publish('_site');
+    publish('_site');
 }
 
 main();
