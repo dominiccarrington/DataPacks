@@ -1,0 +1,2 @@
+scoreboard objectives setdisplay belowName
+scoreboard objectives setdisplay list

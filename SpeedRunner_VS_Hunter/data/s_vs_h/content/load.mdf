@@ -1,5 +1,6 @@
 %(dark_green)>% Datapack **\[Speedrunner VS Hunters\]** Installed!
-%(dark_green)>% Run %(dark_gold)[/trigger speedrunner set 1]()% to become the speedrunner
-%(dark_green)>% Run %(dark_gold)[/trigger speedrunner set 2]()% to randomally choose the speedrunner
+%(dark_green)>% Type %(gold)[/trigger speedrunner set 1]()% to become the speedrunner
+%(dark_green)>% Type %(gold)[/trigger speedrunner set 2]()% to randomally choose the speedrunner
+%(red)> OPs:% Type %(gold)[/function s_vs_h:settings]()% to get the settings book
 %(dark_green)>% Originally By %(green)[\[3boood_pro\]](https://www.planetminecraft.com/member/3boood_pro/){Planet Minecraft}%
 %(dark_green)>% Updated By %(dark_purple)[\[RageGamingPE\]](https://dominiccarrington.github.io/DataPacks){My DataPacks}%

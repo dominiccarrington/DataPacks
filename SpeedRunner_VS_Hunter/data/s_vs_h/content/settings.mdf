@@ -1,0 +1,6 @@
+---
+title: Speedrunner VS Hunters Settings
+author: Mason
+---
+**Display Health**
+%(green)[Yes](/function s_vs_h:settings/enable_health)% | %(red)[No](/function s_vs_h:settings/disable_health)%

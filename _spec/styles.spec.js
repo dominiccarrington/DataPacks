@@ -288,4 +288,16 @@ describe("Colored", function () {
         expect(output[2]).to.have.property('text').and.be.equal(after);
         expect(output[2]).to.have.property('color').and.be.equal('white');
     });
+    it("Two Colors on one Line", function () {
+        const text1 = faker.lorem.words(3);
+        const text2 = faker.lorem.words(3);
+
+        const output = convertLine("%(red)" + text1 + "% %(green)" + text2 + "%", [], 'white');
+
+        expect(output).to.have.length(3);
+
+        expect(output[0]).to.have.property('color').and.be.equal('red');
+        expect(output[1]).to.have.property('color').and.be.equal('white');
+        expect(output[2]).to.have.property('color').and.be.equal('green');
+    });
 });

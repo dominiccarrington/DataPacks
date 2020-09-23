@@ -1,0 +1,2 @@
+scoreboard objectives setdisplay belowName Health
+scoreboard objectives setdisplay list Health
