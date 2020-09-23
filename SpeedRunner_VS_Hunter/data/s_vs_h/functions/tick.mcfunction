@@ -42,7 +42,3 @@ execute as @a[team=Hunter,nbt={Inventory:[{Slot:8b,id:"minecraft:compass"}]}] ru
 
 # Kills The Compass
 execute as @e[type=minecraft:item,nbt={Item:{id:"minecraft:compass",tag:{LodestoneTracked:0}}}] at @s run kill @s
-
-# Action Bar Text
-execute as @a[team=Hunter] at @s run title @s actionbar [{"text":"You are ","color":"dark_green","bold":true,"italic":true},{"text":"Hunter","color":"dark_purple","bold":true,"italic":true}]
-execute as @a[team=SpeedRunner] at @s run title @s actionbar [{"text":"You are ","color":"dark_green","bold":true,"italic":true},{"text":"SpeedRunner","color":"light_purple","bold":true,"italic":true}]
