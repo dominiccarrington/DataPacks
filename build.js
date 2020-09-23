@@ -152,6 +152,9 @@ export function convertLine(
                         click = parseInt(click);
                     } else if (click.startsWith("/")) {
                         action = "run_command";
+                    } else if (click.startsWith(".")) {
+                        action = "suggest_command";
+                        click = click.slice(1);
                     } else  {
                         action = "open_url";
                     }
@@ -163,9 +166,11 @@ export function convertLine(
                 page.push(out);
                 text = "";
             } else if (char == "`") {
+                let player;
                 [player, j] = absorbTextUntil(line, j+1, "`");
 
                 if (player.includes(".")) {
+                    let objective;
                     [player, objective] = player.split(".");
                     page.push({"score": {"name": player, "objective": objective}, ...status});
                 } else {

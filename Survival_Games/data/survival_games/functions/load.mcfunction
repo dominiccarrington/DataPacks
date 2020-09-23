@@ -9,17 +9,23 @@ gamerule commandBlockOutput false
 scoreboard objectives add player dummy
 scoreboard objectives add death deathCount
 scoreboard objectives add rest minecraft.custom:minecraft.time_since_death
+scoreboard objectives add settings dummy
+scoreboard objectives add Health health
 
 team add Tribute
 team add Spectator
 team leave @a
 
-scoreboard objectives add Health health
+scoreboard players set #GracePeriod settings 0
+scoreboard players set #TimeLimit settings 30
+scoreboard players set #Compass settings 2
+scoreboard players set #WorldBorder settings 2
+
 scoreboard objectives setdisplay list Health
 
 advancement revoke @a everything
 
-tellraw @a [{"text":"> ","color":"dark_green","italic":true},{"text":"Datapack [","color":"white","italic":true},{"text":"Survival Games","color":"white","italic":true},{"text":"]","color":"white","italic":true},{"text":" Installed!","color":"white"}]
-
-tellraw @a [{"text":"> ","color":"dark_green","italic":true},{"text":"Type ","color":"white","italic":true},{"text":" /function survival_games:start","color":"gold","italic":true},{"text":" to start the game","color":"white","italic":true}]
-tellraw @a [{"text":"> ","color":"dark_green","italic":true},{"text":"By ","color":"white","italic":true},{"text":"[RageGamingPE]","color":"dark_purple","italic":true,"hoverEvent":{"action":"show_text","value":[{"text":"GitHub"}]},"clickEvent":{"action":"open_url","value":"https://github.com/dominiccarrington"}}]
+tellraw @a [{"text":">","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"dark_green"},{"text":" Datapack ","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"white"},{"text":"[Survival Games]","bold":true,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"white"},{"text":" Installed!","color":"white"}]
+tellraw @a [{"text":"> OPs:","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"red"},{"text":" Type or click ","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"white"},{"text":"/function survival_games:start","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"gold","clickEvent":{"action":"run_command","value":"/function survival_games:start"}},{"text":" to start the game","color":"white"}]
+tellraw @a [{"text":"> OPs:","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"red"},{"text":" Type or click ","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"white"},{"text":"/function survival_games:settings","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"gold","clickEvent":{"action":"run_command","value":"/function survival_games:settings"}},{"text":" to get the settings book","color":"white"}]
+tellraw @a [{"text":">","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"dark_green"},{"text":" Created By ","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"white"},{"text":"[RageGamingPE]","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"dark_purple","clickEvent":{"action":"open_url","value":"https://dominiccarrington.github.io/DataPacks"},"hoverEvent":{"action":"show_text","contents":"My DataPacks"}}]

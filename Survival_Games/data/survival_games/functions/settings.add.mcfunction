@@ -1,0 +1,1 @@
+give @s written_book{%settings%}
