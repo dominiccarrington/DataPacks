@@ -88,12 +88,12 @@ function convertForTellraw(file, start) {
         .join("\n");
 }
 
-function convertLine(
+export function convertLine(
     line, page, defaultColor,
     status = {bold: false, italic: false, underline: false, strikethrough: false, obfuscated: false, color: defaultColor}
 ) {
     let text = "";
-    const lookoutFor = ['*', '_', '-', '#', '%', '[', '$'];
+    const lookoutFor = ['*', '_', '-', '#', '%', '[', '`'];
     for (let j = 0; j < line.length; j++) {
         const char = line[j];
         if (char === "\\") {
@@ -163,8 +163,8 @@ function convertLine(
                 if (hover) out["hoverEvent"] = {"action":"show_text","contents":hover};
                 page.push(out);
                 text = "";
-            } else if (char == "$" && line[j+1] == "{") {
-                [player, j] = absorbTextUntil(line, j+2, "}");
+            } else if (char == "`") {
+                [player, j] = absorbTextUntil(line, j+1, "`");
 
                 if (player.includes(".")) {
                     [player, objective] = player.split(".");
@@ -172,6 +172,14 @@ function convertLine(
                 } else {
                     page.push({"selector": player, ...outputStatus(status)});
                 }
+            } else if (char == "(") { // TODO
+                [query, j] = absorbTextUntil(line, j+1, "?");
+                [ifSection, j] = absorbTextUntil(line, j+1, ":");
+                [unlessSection, j] = absorbTextUntil(line, j+1, ")");
+
+                console.log(query);
+                console.log(ifSection);
+                console.log(unlessSection);
             }
         } else {
             text += char;
