@@ -8,21 +8,26 @@ author: Mason
 [2) Timings](2)
 [3) Compass](3)
 [4) World Border](4)
-===
-*Grace Period*: `#GracePeriod.settings` mins
-[\[0\]](/scoreboard players set #GracePeriod settings 0) [\[1\]](/scoreboard players set #GracePeriod settings 1) [\[2\]](/scoreboard players set #GracePeriod settings 2) [\[3\]](/scoreboard players set #GracePeriod settings 3) [\[5\]](/scoreboard players set #GracePeriod settings 5)
-[\[Custom\]](./scoreboard players set #GracePeriod settings )
 
-*Time Limit*: `#TimeLimit.settings` mins
-\[10\]](/scoreboard players set #TimeLimit settings 10) \[20\]](/scoreboard players set #TimeLimit settings 20) \[30\]](/scoreboard players set #TimeLimit settings 30) \[60\]](/scoreboard players set #TimeLimit settings 60)
-[\[Custom\]](./scoreboard players set #TimeLimit settings )
+
+
+
+
+
+
+    %(dark_purple)[\[View\]](/scoreboard objectives setdisplay sidebar settings){View Settings on the sidebar}% | %(green)[\[Start\]](/function survival_games:start){Start the game!}%
 ===
-*Compass*: Option `#Compass.settings`
-[\[1. Given on Spawn\]](/scoreboard players set #Compass settings 1)
-[\[2. Requires Craft\]](/scoreboard players set #Compass settings 2)
-[\[3. No Tracking\]](/scoreboard players set #Compass settings 3)
+*Grace Period*
+[\[0\]](/scoreboard players set GracePeriod settings 0) [\[1\]](/scoreboard players set GracePeriod settings 1) [\[2\]](/scoreboard players set GracePeriod settings 2) [\[3\]](/scoreboard players set GracePeriod settings 3) [\[5\]](/scoreboard players set GracePeriod settings 5)
+
+*Time Limit*:
+[\[10\]](/scoreboard players set TimeLimit settings 10) [\[20\]](/scoreboard players set TimeLimit settings 20) [\[30\]](/scoreboard players set TimeLimit settings 30) [\[60\]](/scoreboard players set TimeLimit settings 60)
 ===
-*World Border*: Option `#WorldBorder.settings`
-This option will only work with a defined time limit
-[\[1. Reduce\]](/scoreboard players set #WorldBorder settings 1)
-[\[2. No Border\]](/scoreboard players set #WorldBorder settings 2)
+*Compass*
+[\[1. Given on Spawn\]](/scoreboard players set Compass settings 1){A compass is given to the player on spawn which points to the nearest player}
+[\[2. Requires Craft\]](/scoreboard players set Compass settings 2){When a compass is crafted, it points to the nearest player}
+[\[3. No Tracking\]](/scoreboard players set Compass settings 3){Compasses acts like normal}
+===
+*World Border*
+[\[1. Reduce\]](/scoreboard players set WorldBorder settings 1){Create a world border that reduces to spawn to create a deathmatch naturally}
+[\[2. No Border\]](/scoreboard players set WorldBorder settings 2){After the time limit, teleport all players to spawn and start a deathmatch}

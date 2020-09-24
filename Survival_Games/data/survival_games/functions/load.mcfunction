@@ -16,10 +16,10 @@ team add Tribute
 team add Spectator
 team leave @a
 
-scoreboard players set #GracePeriod settings 0
-scoreboard players set #TimeLimit settings 30
-scoreboard players set #Compass settings 2
-scoreboard players set #WorldBorder settings 2
+scoreboard players set GracePeriod settings 0
+scoreboard players set TimeLimit settings 30
+scoreboard players set Compass settings 2
+scoreboard players set WorldBorder settings 2
 
 scoreboard objectives setdisplay list Health
 
