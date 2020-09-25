@@ -23,10 +23,9 @@ scoreboard players set TimeLimit settings 30
 scoreboard players set Compass settings 2
 scoreboard players set WorldBorder settings 2
 
-worldborder center 0 0
-worldborder set 60000000
-
 advancement revoke @a everything
+
+function survival_games:game/end
 
 tellraw @a [{"text":">","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"dark_green"},{"text":" Datapack ","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"white"},{"text":"[Survival Games]","bold":true,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"white"},{"text":" Installed!","color":"white"}]
 tellraw @a [{"text":"> OPs:","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"red"},{"text":" Type or click ","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"white"},{"text":"/function survival_games:start","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"gold","clickEvent":{"action":"run_command","value":"/function survival_games:start"}},{"text":" to start the game","color":"white"}]
