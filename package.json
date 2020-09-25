@@ -33,7 +33,7 @@
   "homepage": "https://github.com/dominiccarrington/DataPacks#readme",
   "husky": {
     "hooks": {
-      "pre-commit": "npm test && npm run build"
+      "pre-commit": "npm test"
     }
   }
 }
