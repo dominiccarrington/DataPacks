@@ -12,8 +12,8 @@ scoreboard players set #Tributes settings 0
 execute as @a[team=Tribute] run scoreboard players add #Tributes settings 1
 
 execute if score #InGame settings matches 1 if score #Tributes settings matches 1 run tellraw @a {%end/winner%}
-execute if score #InGame settings matches 0 if score #Tributes settings matches 0 run tellraw @a {%end/draw%}
-execute if score #InGame settings matches 0..1 if score #Tributes settings matches 0..1 run function survival_games:game/end
+execute if score #InGame settings matches 1 if score #Tributes settings matches 0 run tellraw @a {%end/draw%}
+execute if score #InGame settings matches 1 if score #Tributes settings matches 0..1 run function survival_games:game/end
 
 execute if score #InGame settings matches 1 if score #Mins settings matches 10.. if score #Secs settings matches 10.. run title @a actionbar {%timer/time__%}
 execute if score #InGame settings matches 1 if score #Mins settings matches 10.. if score #Secs settings matches ..9 run title @a actionbar {%timer/time_0%}
