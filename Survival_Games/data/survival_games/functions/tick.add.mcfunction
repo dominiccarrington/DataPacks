@@ -19,3 +19,6 @@ execute if score #InGame settings matches 1 if score #Mins settings matches 10..
 execute if score #InGame settings matches 1 if score #Mins settings matches 10.. if score #Secs settings matches ..9 run title @a actionbar {%timer/time_0%}
 execute if score #InGame settings matches 1 if score #Mins settings matches ..9 if score #Secs settings matches 10.. run title @a actionbar {%timer/time0_%}
 execute if score #InGame settings matches 1 if score #Mins settings matches ..9 if score #Secs settings matches ..9 run title @a actionbar {%timer/time00%}
+
+execute if score #InGame settings matches 1 run tag @a[team=Tribute] add compass_update
+execute if score #InGame settings matches 1 run function survival_games:compass
