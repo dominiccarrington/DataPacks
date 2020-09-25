@@ -4,7 +4,7 @@ import glob from "glob";
 import path from "path";
 
 glob("**/functions/*.add.mcfunction", function (err, files) {
-    const replacementRegExp = /\{\%(\w+)\%\}/;
+    const replacementRegExp = /\{\%(.+?)\%\}/;
 
     for (let file of files) {
         let fileContent = fs.readFileSync(file).toString();
@@ -17,9 +17,9 @@ glob("**/functions/*.add.mcfunction", function (err, files) {
             if (match = replacementRegExp.exec(line)) {
                 const content = path.dirname(path.dirname(file)) + "/content/" + match[1] + ".mdf";
 
-                if (line.startsWith('give')) {
+                if (line.includes('give')) {
                     line = line.replace(match[0], convertForBook(content));
-                } else if (line.startsWith('tellraw')) {
+                } else {
                     line = convertForTellraw(content, line.slice(0, match.index));
                 }
             }
