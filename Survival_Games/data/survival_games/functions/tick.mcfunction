@@ -3,14 +3,14 @@
 # By: RageGamingPE
 ####
 
-team join Tribute @a[scores={settings=101}]
-execute as @a[scores={settings=101}] run tellraw @a [{"selector":"@s","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"white"},{"text":" has volunteed as Tribute","color":"white"}]
-team join Spectator @a[scores={settings=102}]
-execute as @a[scores={settings=102}] run tellraw @a [{"selector":"@s","bold":false,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"white"},{"text":" will spectate","color":"white"}]
-scoreboard players set @a settings 0
+team join Tribute @a[scores={action=101}]
+execute as @a[scores={action=101}] run tellraw @a [{"selector":"@s","bold":true,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"gold"},{"text":" has volunteed as Tribute","bold":true,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"white"}]
+team join Spectator @a[scores={action=102}]
+execute as @a[scores={action=102}] run tellraw @a [{"selector":"@s","bold":true,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"gold"},{"text":" will spectate","bold":true,"italic":false,"underline":false,"strikethrough":false,"obfuscated":false,"color":"white"}]
+scoreboard players set @a action 0
+execute if score #InGame settings matches 0 run scoreboard players enable @a action
 
 team join Spectator @a[scores={death=1}]
-gamemode spectator @a[team=Spectator]
 
 scoreboard players set #Tributes settings 0
 scoreboard players set #Fallen settings 0

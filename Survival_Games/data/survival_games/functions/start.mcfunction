@@ -21,6 +21,7 @@ scoreboard players operation #TimeLimit settings = TimeLimit settings
 scoreboard players operation #TimeLimit settings *= #60 settings
 
 scoreboard objectives setdisplay sidebar ingame
+function survival_games:game/update_sidebar
 
 # Join players to Tribute, apart from players that want to spectate
 team join Tribute @a[team=!Spectator]

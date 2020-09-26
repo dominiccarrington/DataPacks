@@ -3,14 +3,14 @@
 # By: RageGamingPE
 ####
 
-team join Tribute @a[scores={settings=101}]
-execute as @a[scores={settings=101}] run tellraw @a {%pre/join_tribute%}
-team join Spectator @a[scores={settings=102}]
-execute as @a[scores={settings=102}] run tellraw @a {%pre/join_spectator%}
-scoreboard players set @a settings 0
+team join Tribute @a[scores={action=101}]
+execute as @a[scores={action=101}] run tellraw @a {%pre/join_tribute%}
+team join Spectator @a[scores={action=102}]
+execute as @a[scores={action=102}] run tellraw @a {%pre/join_spectator%}
+scoreboard players set @a action 0
+execute if score #InGame settings matches 0 run scoreboard players enable @a action
 
 team join Spectator @a[scores={death=1}]
-gamemode spectator @a[team=Spectator]
 
 scoreboard players set #Tributes settings 0
 scoreboard players set #Fallen settings 0
