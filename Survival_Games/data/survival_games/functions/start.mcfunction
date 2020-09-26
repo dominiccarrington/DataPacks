@@ -4,6 +4,7 @@
 ####
 
 scoreboard players set #InGame settings 1
+schedule clear survival_games:message
 
 # Nuke everything from everyone
 time set 0
@@ -19,7 +20,7 @@ scoreboard players operation #GracePeriod settings *= #60 settings
 scoreboard players operation #TimeLimit settings = TimeLimit settings
 scoreboard players operation #TimeLimit settings *= #60 settings
 
-scoreboard objectives setdisplay sidebar
+scoreboard objectives setdisplay sidebar ingame
 
 # Join players to Tribute, apart from players that want to spectate
 team join Tribute @a[team=!Spectator]

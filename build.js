@@ -3,7 +3,7 @@ import fs from "fs";
 import glob from "glob";
 import path from "path";
 
-glob("**/functions/*.add.mcfunction", function (err, files) {
+glob("**/functions/**/*.add.mcfunction", function (err, files) {
     const replacementRegExp = /\{\%(.+?)\%\}/;
 
     for (let file of files) {
@@ -15,7 +15,12 @@ glob("**/functions/*.add.mcfunction", function (err, files) {
 
             let match;
             if (match = replacementRegExp.exec(line)) {
-                const content = path.dirname(path.dirname(file)) + "/content/" + match[1] + ".mdf";
+                let folder = file;
+                while (folder.includes("functions")) {
+                    folder = path.dirname(folder);
+                }
+                
+                const content = folder + "/content/" + match[1] + ".mdf";
 
                 if (line.includes('give')) {
                     line = line.replace(match[0], convertForBook(content));
