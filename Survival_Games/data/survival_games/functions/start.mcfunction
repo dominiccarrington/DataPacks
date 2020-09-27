@@ -32,6 +32,7 @@ spreadplayers 0 0 10000 1000000 false @a[tag=primary]
 execute at @p[tag=primary] run summon minecraft:armor_stand ~ ~ ~ {NoGravity:1,CustomName:'"Center"'}
 tag @a remove primary
 execute at @e[type=armor_stand,name="Center",limit=1] run spawnpoint @a
+execute as @e[type=armor_stand,name="Center",limit=1] run spreadplayers ~ ~ 50 200 false @a[team=Tribute]
 
 # Teleport all players to new spawn
 teleport @a @e[type=armor_stand,name="Center",limit=1]
