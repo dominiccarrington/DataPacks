@@ -36,6 +36,7 @@ execute as @e[type=armor_stand,name="Center",limit=1] run spreadplayers ~ ~ 50 2
 
 # Teleport all players to new spawn
 # teleport @a @e[type=armor_stand,name="Center",limit=1]
+execute at @e[type=armor_stand,name="Center",limit=1] run forceload add ~ ~
 effect give @a[team=Tribute] minecraft:regeneration 10 255 true
 effect give @a[team=Tribute] minecraft:saturation 10 255 true
 effect give @a[team=Tribute] minecraft:mining_fatigue 10 255 true
