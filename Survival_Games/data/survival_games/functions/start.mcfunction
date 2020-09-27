@@ -29,9 +29,9 @@ team join Tribute @a[team=!Spectator]
 # Define a center point of the world, should allow for the game to be played in the same world multiple times
 tag @r[team=Tribute] add primary
 spreadplayers 0 0 10000 1000000 false @a[tag=primary]
-execute as @p[tag=primary] run summon minecraft:armor_stand ~ ~ ~ {NoGravity:1,CustomName:'"Center"'}
+execute at @p[tag=primary] run summon minecraft:armor_stand ~ ~ ~ {NoGravity:1,CustomName:'"Center"'}
 tag @a remove primary
-execute as @e[type=armor_stand,name="Center",limit=1] run spawnpoint @a
+execute at @e[type=armor_stand,name="Center",limit=1] run spawnpoint @a
 
 # Teleport all players to new spawn
 teleport @a @e[type=armor_stand,name="Center",limit=1]
