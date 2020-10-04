@@ -14,6 +14,7 @@ scoreboard objectives add deaths deathCount
 scoreboard objectives setdisplay list health
 
 scoreboard players set @a player 0
+scoreboard players set #players player 1
 execute as @a run scoreboard players add #players player 1
 scoreboard players set #default timer 1200
 scoreboard players operation #default timer /= #players player
