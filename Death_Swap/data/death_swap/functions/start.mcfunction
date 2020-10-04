@@ -5,6 +5,7 @@
 ####
 
 scoreboard players set #temp player 1
+scoreboard players set @a player 0
 function death_swap:set_players
 
 clear @a
